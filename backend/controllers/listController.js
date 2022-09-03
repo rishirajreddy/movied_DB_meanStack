@@ -20,10 +20,10 @@ const inputFile = path.resolve(__dirname, "../tmdb_5000_movies.csv");
 //     ]
 //   );
 
-const bucket_region = "us-west-2";
-const bucket_name = "node-s3-angular";
-const access_key = "AKIASTPLZLVQA4FNENG3";
-const secret_key = "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";
+const bucket_region = "bucket_region";
+const bucket_name = "bucket_name";
+const access_key = "key";
+const secret_key = "secret_key";
 
 const s3 = new S3({
     region: bucket_region,
@@ -34,7 +34,7 @@ const s3 = new S3({
 async function getFileStream() {
     const data = s3.getObject(
         {
-            Bucket: "node-s3-angular",
+            Bucket: "<<bucket_name>>",
             Key: "posters/1452.webp"
         }
     ).promise();
@@ -45,7 +45,7 @@ async function getFileStream() {
 async function uploadImage(file){
     const fileStream =  fs.createReadStream(file.path);
     const uploadParams = {
-        Bucket : "node-s3-angular",
+        Bucket : "<<bucket_name>>",
         Body : fileStream,
         Key : "posters/"+file.filename,
         ContentType: "image/webp"
@@ -65,7 +65,7 @@ async function uploadImage(file){
 async function uploadVideo(file){
     const fileStream =  fs.createReadStream(file.path);
     const uploadParams = {
-        Bucket : "node-s3-angular",
+        Bucket : "<<bucket_name>>",
         Body : fileStream,
         Key : "trailers/"+file.filename,
         ContentType: "video/mp4",
@@ -80,14 +80,6 @@ async function uploadVideo(file){
     })
 }
 
-exports.getImage = async(req,res) => {
-    // let fileKey = req.params.key;
-    const readStream = getFileStream();
-    readStream.then((response) => {
-        console.log(response);
-        res.status(200).json({msg:"Success"})
-    })
-}
 
 exports.addMovies = async(req,res) => {
     const dataset = new ds.DataSet().fromFile(inputFile, "csv");
