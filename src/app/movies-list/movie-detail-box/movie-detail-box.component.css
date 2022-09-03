@@ -1,0 +1,47 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+
+.tile-image {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.card::-webkit-scrollbar {
+    display: none;
+}
+
+.overview {
+    margin: 0px 0px 1px;
+    line-height: 16px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.show {
+    overflow: visible;
+    height: auto;
+}
+
+.movie-type {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2vw;
+    justify-content: flex-start;
+}
+.detail-box {
+    position: relative;
+}
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    scale: 1.0;
+    z-index: 2;
+    padding: 0;
+}

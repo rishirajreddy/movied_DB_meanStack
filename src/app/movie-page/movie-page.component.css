@@ -1,0 +1,78 @@
+
+
+.video-player-wrapper {
+    margin-top: 2rem;
+}
+
+.movie-type {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.houses{ 
+    display: flex;align-items:center;
+    justify-content: flex-start;
+}
+
+.houses h3 {
+    margin: 0px 10px 0px 0px;
+}
+
+mat-card {
+    margin: auto;
+    width: 720px;
+}
+video {
+    width: 720px;
+}
+
+.thumbnail {
+    width: 720px;
+    height: 480px;
+}
+
+.poster {
+    margin: auto;
+    text-align: center;
+}
+
+.poster img {
+    /* border: 1px solid; */
+    border-radius: 15px;
+}
+
+.rating {
+    display: flex;
+}
+.rating h2{
+    margin: 0px 0px 0px;
+}
+
+.rating-icon h2{
+    margin: 0px 0px 0px;
+    /* display: flex; */
+}
+
+.footer-details {
+    display: flex;
+    justify-content: space-around;
+}
+/* video::-webkit-media-controls-timeline {
+    display: none;
+} */
+
+footer {
+    bottom: 0;
+}
+
+.footer-content {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+span {
+    margin-right: 1rem;
+    font-size: small;
+    font-family: 'Raleway', sans-serif;
+}

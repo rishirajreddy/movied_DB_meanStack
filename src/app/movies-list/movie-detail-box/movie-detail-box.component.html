@@ -1,0 +1,34 @@
+<!-- <p>{{data}}</p> -->
+<div class="detail-box">
+    <button 
+    (click)="onClose()"
+    class="close" mat-icon-button>
+      <mat-icon>cancel</mat-icon>
+    </button> <br>
+<mat-grid-list cols="2" rowHeight="2:2">
+    <mat-grid-tile>
+        <img
+        (click)="moviesPage()" 
+        class="tile-image"
+        src="{{data.poster}}" alt="">
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="card">
+            <mat-card-title>{{data.title}}</mat-card-title>
+            <mat-card-subtitle class="movie-type">
+                <p style="margin-right: 1rem;">{{data.releaseDate.substring(0,4)}}</p>
+                <p style="margin-right: 1rem;">{{genre1}}/{{genre2}}</p>
+                <p style="margin-right: 1rem;">{{runtime}}</p>
+            </mat-card-subtitle>
+            <mat-card-content 
+            class="overview"
+            [class.show]="show"
+            >{{overview}}</mat-card-content>
+            <p 
+            style="font-size: 12px;color: grey; cursor: pointer"
+            (click)="show = !show">{{show ? 'Show less':'Show more'}}</p>
+            <h2 style="text-align: center">{{data.rating}}/10</h2>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

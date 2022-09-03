@@ -1,0 +1,109 @@
+<!-- <div class="bg-image" style="max-width: 22rem;">
+    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" class="w-100" />
+    <div class="bottom-0 text-light w-100"
+      style="background-color: rgba(0, 0, 0, 0.5)">
+      <p class="p-2 m-0">Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div> -->
+  
+  <div class="container">
+    <div 
+    class="popular">
+        <h2 style="text-align: center;color: white;">Popular Movies</h2>
+        <div 
+        *ngIf="!isLoading"
+        class="left-btn">
+            <button
+            (click)="scrollLeft('popular')"
+            mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+        </div>
+        <div *ngIf="!isLoading" class="right-btn">
+            <button 
+            (click)="scrollRight('popular')"
+            mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+        </div>
+        <div #popularContent class="list" layout="row">
+            <div *ngFor="let item of popularMovies">
+                <mat-card
+                (click)="openDialog(item)"
+                class="card-card" style="width: 22rem;">
+                <div 
+                *ngIf="isLoading"
+                class="shimmer-wrapper">
+                    <div class="bg-image shimmer shimmer-circle-md shimmer-animate"></div>
+                  </div>
+                <div 
+                *ngIf="!isLoading"
+                class="bg-image" >
+                        <img src= "{{item.poster}}" class="w-100" />
+                        <div class="bottom-0 text-light w-100"
+                        style="background-color: rgba(0, 0, 0, 0.5);">
+                        <p class="p-2 m-0">{{item.title}}</p>
+                        </div>
+                    </div>    
+                </mat-card>
+            </div>
+            </div>
+        </div>
+
+    <div 
+    class="latest">
+        <h2 style="text-align: center; color: white;">Latest Movies</h2>
+        <div *ngIf="!isLoading" class="left-btn">
+            <button 
+            (click)="scrollLeft('latest')"
+            mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+        </div>
+        <div *ngIf="!isLoading" class="right-btn">
+            <button 
+            (click)="scrollRight('latest')"
+            mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+        </div>
+
+        <div #latestContent class="list" layout="row">
+            <div *ngFor="let item of latestMovies">
+                <mat-card 
+                (click)="openDialog(item)"
+                class="card-card" style="width: 22rem;">
+                
+                <div 
+                *ngIf="isLoading"
+                class="shimmer-wrapper">
+                    <div class="bg-image shimmer shimmer-circle-md shimmer-animate"></div>
+                </div>
+
+                    <div 
+                    *ngIf="!isLoading"
+                    class="bg-image" >
+                        <img src="{{item.poster}}" class="w-100" />
+                        <div class="bottom-0 text-light w-100"
+                        style="background-color: rgba(0, 0, 0, 0.5)">
+                        <p class="p-2 m-0">{{item.title}}</p>
+                        </div>
+                    </div>    
+                </mat-card>
+            </div>
+            </div>
+    </div>
+
+</div><br>
+
+<footer *ngIf="!isLoading">
+    <mat-toolbar>
+        <div class="footer-content">
+            <span>
+                All Rights Reserved
+            </span>
+            <span>ChillFlix</span>
+            <span>Made with ❤</span>
+        </div>
+    </mat-toolbar>
+</footer>

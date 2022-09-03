@@ -1,0 +1,18 @@
+.nav {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+}
+
+
+.logo {
+    margin: auto;  
+    cursor: pointer;
+}
+
+.logo-icon {
+    margin-left: 5px;
+    height: 30px;
+    transform: rotate(20deg);
+}

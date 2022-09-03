@@ -1,0 +1,100 @@
+
+  <div class="video-player-wrapper">
+    <h2 style="text-align: center; color: white;">{{title.toUpperCase()}}</h2>
+    <mat-card>
+  
+      <mat-spinner
+      *ngIf="isLoading" 
+      style="margin: auto;"
+      diameter="40"></mat-spinner>
+      
+    <vg-player>
+      <vg-overlay-play></vg-overlay-play>
+      <vg-buffering></vg-buffering>
+      <vg-scrub-bar>
+        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+      </vg-scrub-bar>
+      <vg-controls>
+        <vg-play-pause></vg-play-pause>
+        <!-- <vg-playback-button></vg-playback-button> -->
+        <!-- <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display> -->
+        <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+        <!-- <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display> -->
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+        <!-- <vg-track-selector></vg-track-selector> -->
+        <vg-mute></vg-mute>
+        <vg-volume></vg-volume>
+        <vg-fullscreen></vg-fullscreen>
+      </vg-controls>
+
+    <video 
+      *ngIf="!isLoading"
+      height="480px"
+      [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin autoplay>
+        <source src="{{movieDetails.trailer}}" type="video/mp4">
+        </video>
+    </vg-player>
+  </mat-card><br>
+  
+  <mat-card 
+  *ngIf="!isLoading"
+  class="overview">
+  <mat-card-title style="text-align: center;">Overview</mat-card-title>
+  <mat-divider></mat-divider><br>
+  <mat-spinner
+  *ngIf="isLoading" 
+  style="margin: auto;"
+  diameter="30"></mat-spinner>
+  
+  <div class="poster">
+    <img mat-card-xl-image src="{{movieDetails.poster}}" >
+  </div><br>
+  <mat-card-subtitle
+    class="movie-type">
+      <p style="margin-right: 1rem;">{{movieDetails.releaseDate.substring(0,4)}}</p>
+      <p style="margin-right: 1rem;">{{genre1}}/{{genre2}}</p>
+      <p style="margin-right: 1rem;">{{runtime}}</p>
+  </mat-card-subtitle>
+    <mat-card-content>{{movieDetails.overview}}</mat-card-content>
+    
+    <div 
+    class="houses">
+      <h3 style="font-weight: 500;">Production Houses:</h3>
+      <div 
+      style="display: flex; margin-right: 10px; font-weight: 400;"
+      *ngFor="let house of production_houses; let i = index">
+        {{i%2 == 0 ? removeSepcialChars(house).toUpperCase() : ''}}
+      </div>
+    </div><br>
+
+    <div class="footer-details">
+      <div class="rating">
+        <h2 >Rating: {{movieDetails.rating}}/10 
+          <span 
+          style="top: 3px; position: relative;">
+            <mat-icon style="color: #2222ff;">star</mat-icon></span></h2>
+      </div>
+
+      <div class="budget">
+        <h2>Budget: ${{budget}} M</h2>
+      </div>
+
+      <div class="language">
+        <h2>Language: English</h2>
+      </div>
+    </div>
+  </mat-card>
+  </div><br>
+
+  <footer *ngIf="!isLoading">
+    <mat-toolbar>
+        <div class="footer-content">
+            <span>
+                All Rights Reserved
+            </span>
+            <span>ChillFlix</span>
+            <span>Made with ❤</span>
+        </div>
+    </mat-toolbar>
+</footer>
