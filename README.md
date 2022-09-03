@@ -2,7 +2,13 @@
 
 This project is purely built on MEAN Stack. It is deployed in AWS Elastic BeanStalk EC2 instance Amazon Linux 2/5.5.6. Below is the link. <br>
 ## <a href="http://moviedbmean-env.eba-wnymz2ms.us-west-2.elasticbeanstalk.com/">Project Link</a>
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7. <br><br>
+Here is the quick demo of the project: <br>
+<div
+    style="height: 320px; width: 640px; margin: auto;"
+>
+    <video src="https://user-images.githubusercontent.com/64702890/188285486-0e0d7341-e4a5-4585-ad5e-f62807abc557.mp4"></video>
+</div>
 
 ## Development server
 
